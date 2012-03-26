@@ -5,48 +5,34 @@ Ext.define('Whiteboard.controller.MainController', {
     	refs: {
     	    main: 'mainview',
 
-	    // Content
-	    home: 'home',
-	    workspace: 'workspace',
+	        // Content
+            home: 'home',
+            workspace: 'workspace',
 
-	    // Workspace
-	    chatboard: 'chatboard',
+            // Workspace
+            chatboard: 'chatboard',
 
-	    // Top Nav
-	    gotohome: '#gotohome',
-	    gotoworkspace: '#gotoworkspace'
+            // Top Nav
+            gotohome: '#gotohome',
+            gotoworkspace: '#gotoworkspace'
     	},
 
-	control: {
-	    // Top Nav
-	    gotohome: {
-		tap: 'navTap'
-	    },
-	    gotoworkspace: {
-		tap: 'second'
+        control: {
+            // Top Nav
+            gotohome: {
+                tap: 'navTap'
+            },
+            gotoworkspace: {
+                tap: 'navTap'
+	        }
 	    }
-	}
     },
 
-    second: function() {
-	// this.getMain().setActiveItem(1);
-    },
-
-    // Dynamically show Content views
-    // I just don't want to hardcode indexes
-    // Of course this requires to follow a convention:
-    // nav buttons must be prefixed with 'goto' followed
-    // by the named 'ref' for the content component.
-    navTap: function(c) {
-	var object= function(self) {
-	    id= c.getId().replace(/goto/,'');
-	    id= id.charAt(0).toUpperCase() + id.slice(1);
-	    return self['get'+id]();
-	}(this);
-	this.getMain().setActiveItem(object);
+    navTap: function() {
+	    // this.getMain().setActiveItem(1);
     },
 
     launch: function() {
-	Ext.create("Whiteboard.view.Chatboard");
+	    Ext.create("Whiteboard.view.Chatboard");
     }
 });
