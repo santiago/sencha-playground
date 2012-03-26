@@ -2,10 +2,10 @@ Ext.define('Whiteboard.controller.MainController', {
     extend: 'Ext.app.Controller',
 
     config: {
-    	refs: {
-    	    main: 'mainview',
+        refs: {
+            main: 'mainview',
 
-	        // Content
+            // Content
             home: 'home',
             workspace: 'workspace',
 
@@ -15,7 +15,7 @@ Ext.define('Whiteboard.controller.MainController', {
             // Top Nav
             gotohome: '#gotohome',
             gotoworkspace: '#gotoworkspace'
-    	},
+        },
 
         control: {
             // Top Nav
@@ -24,15 +24,15 @@ Ext.define('Whiteboard.controller.MainController', {
             },
             gotoworkspace: {
                 tap: 'navTap'
-	        }
-	    }
+            }
+        }
     },
 
     navTap: function() {
-	    // this.getMain().setActiveItem(1);
+        // this.getMain().setActiveItem(1);
     },
 
     launch: function() {
-	    Ext.create("Whiteboard.view.Chatboard");
+        Ext.create("Whiteboard.view.Chatboard");
     }
 });
