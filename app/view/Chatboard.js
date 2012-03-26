@@ -4,14 +4,15 @@ Ext.define('Whiteboard.view.Chatboard', {
 
     config: {
     	fullscreen: true,
-	    layout: 'fit',
+	    layout: 'vbox',
 	    items: [
 	        {
 		        xtype: 'toolbar',
 		        docked:'bottom',
 		        layout: 'hbox',
+                flex: 1,
 		        items: [
-		            {
+		            /*{
                         id: 'chattext', 
                         xtype: "textfield",
                         enableKeyEvents: true,
@@ -26,7 +27,7 @@ Ext.define('Whiteboard.view.Chatboard', {
                         iconCls: 'chat2', 
                         docked: 'right',
                         iconMask: true
-		            }
+		            }*/
 		        ]
 	        }
 	    ]
