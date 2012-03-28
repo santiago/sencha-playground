@@ -11,43 +11,41 @@ Ext.define('Whiteboard.view.Main', {
 
     xtype: 'mainview',
 
-    // require: ['Whiteboard.view.Chatboard'],
-
     config: {
         fullscreen: true,
-	hidden: false,
-	layout: 'card',
+	    hidden: false,
+	    layout: 'card',
 
-	items: [
-	    {
-	    	xtype: 'home'
-	    },
-	    {
-	    	xtype: 'workspace'
-	    },
+	    items: [
+	        {
+                xtype: 'home'
+	        },
+	        {
+                xtype: 'workspace'
+	        },
             {
                 id: 'mainNav',
                 xtype : 'titlebar',
                 docked: 'top',
                 title : 'Whiteboard',
-	    	ui: 'gray',
+                ui: 'gray',
                 items: [
-	    	    {
-	    		xtype : 'button',
-	    		id: 'gotohome',
-	    		iconMask: true,
-	    		iconCls: 'home',
-	    		ui: 'plain'
+                    {
+                        xtype : 'button',
+                        id: 'gotohome',
+                        iconMask: true,
+                        iconCls: 'home',
+                        ui: 'plain'
                     },
-	    	    {
-	    		xtype : 'button',
-	    		id: 'gotoworkspace',
-	    		iconMask: true,
-	    		iconCls: 'compose',
-	    		ui: 'plain'
+                    {
+                        xtype : 'button',
+                        id: 'gotoworkspace',
+                        iconMask: true,
+                        iconCls: 'compose',
+                        ui: 'plain'
                     }
-	    	]
+                ]
             }
-	]
+        ]
     }
 });
