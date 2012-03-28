@@ -44,5 +44,7 @@ Ext.define('Whiteboard.controller.MainController', {
 
     launch: function() {
         Ext.create("Whiteboard.view.Workspace");
+        // Ugly workaround
+        this.getWorkspace().show();
     }
 });

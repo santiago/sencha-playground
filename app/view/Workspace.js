@@ -1,19 +1,10 @@
 var drawComponent = new Ext.draw.Component({
-    // fullscreen: true,
-    //height: "100%",
+    id: 'canvas',
+    fullscreen: true,
     width: "100%",
-    autoSize: true,
     style: 'background-color: white;',
-    items: [{
-        type: 'circle',
-        fill: '#79BB3F',
-        radius: 100,
-        x: 100,
-        y: 100
-    }]
+    items: []
 });
-
-// drawComponent.surface.setSize(500, 1000);
 
 Ext.define('Whiteboard.view.Chatboard', {
     extend: "Ext.Container",
@@ -63,7 +54,6 @@ Ext.define('Whiteboard.view.Whiteboard', {
     config: {
         layout  : 'vbox',
         width: '100%',
-        // height: '100%',
         style: 'background-color: #f0f0f0;',
 		
         items: [
@@ -115,20 +105,20 @@ Ext.define('Whiteboard.view.Workspace', {
     xtype: 'workspace',
 
     config: {
-	    title: 'Whiteboard',
-	    layout: 'hbox',
-	    fullscreen: true,
+        title: 'Whiteboard',
+        layout: 'hbox',
+        fullscreen: true,
 
-	    items: [
-	        {
+        items: [
+            {
                 xtype: 'chatboard',
                 docked: 'left',
                 width: '25%',
                 style: 'border-right: 1px solid'
-	        },
-	        {
+            },
+            {
                 xtype: 'whiteboard'
-	        }
-	    ]
+            }
+        ]
     }
 });

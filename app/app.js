@@ -3,7 +3,7 @@ Ext.Loader.setConfig({ enabled: true });
 Ext.application({
     name: 'Whiteboard',
     views: ['Workspace'],
-    controllers: ['MainController']
+    controllers: ['MainController', 'WhiteboardController']
 });
 
 Ext.io.setup({
