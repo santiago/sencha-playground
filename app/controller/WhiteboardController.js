@@ -6,7 +6,8 @@ Ext.define('Whiteboard.controller.WhiteboardController', {
             canvas: '#canvas',
             addCircleButton: 'whiteboard #addCircleButton',
             addRectangleButton: 'whiteboard #addRectangleButton',
-            addTextButton: 'whiteboard #addTextButton'
+            addTextButton: 'whiteboard #addTextButton',
+            deleteButton: 'whiteboard #deleteButton'
         },
 
         control: {
@@ -26,6 +27,10 @@ Ext.define('Whiteboard.controller.WhiteboardController', {
             
             addTextButton: {
                 tap: 'addText'
+            },
+            
+            deleteButton: {
+                tap: 'clear'
             }
         }
     },
@@ -44,7 +49,7 @@ Ext.define('Whiteboard.controller.WhiteboardController', {
         this.__lastSprite= null;
     },
     
-    onTap: function(a) {
+    onTap: function(a,b) {
         try {
             this[this._activeAction](a);
         } catch(e) {
@@ -54,7 +59,8 @@ Ext.define('Whiteboard.controller.WhiteboardController', {
 
     tapText: function(a) {
         var self= this;
-        Ext.Msg.prompt('Add Text', 'Write your text ...', function(ok, text) {
+        Ext.Msg.prompt('Add Text', 'Write your text ...', function(action, text) {
+            if(action!='ok') { return }
             var sprite= {
                 type: 'text',
                 text: text,
@@ -149,6 +155,16 @@ Ext.define('Whiteboard.controller.WhiteboardController', {
         canvas.surface.remove(this.__lastSprite);
         this.__lastSprite= canvas.surface.add(sprite);
         canvas.repaint();
+    },
+    
+    clear: function() {
+        var self= this;
+        Ext.Msg.confirm("Confirmation", "Are you sure you want to do that?", function(action) {
+            if(action=='yes') {
+                self.getCanvas().surface.removeAll(true);
+                self.getCanvas().repaint();
+            }
+        });
     },
 
     launch: function() {
