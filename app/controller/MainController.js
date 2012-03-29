@@ -35,7 +35,7 @@ Ext.define('Whiteboard.controller.MainController', {
     // by the named 'ref' for the corresponding component.
     navTap: function(c) {
         var object= function(self) {
-            id= c.getId().replace(/goto/,'');
+            var id= c.getId().replace(/goto/,'');
             id= id.charAt(0).toUpperCase() + id.slice(1);
             return self['get'+id]();
         }(this);
